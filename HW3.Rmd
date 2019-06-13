@@ -77,6 +77,123 @@ $$
 
 （6）請問Fixed effect model的殘差指的是什麼？它的共變異矩陣在前述設定下會長怎麼樣？
 
+***
+
+\begin{align}
+&y_{it}=\beta^\prime x_{it}+\varepsilon_{it},\,\alpha_i \text{不隨時間改變}\\
+&\alpha_i=\frac{\sum_{t=1}^T\varepsilon_{it}}{T}\\
+&v_{it}=\varepsilon_{it}-\alpha_i,\,\varepsilon_{it}=v_{it}+\alpha_i,\,v_{it}\perp\alpha_i\\
+\\
+(1)&\,\frac{\sum_{i=1}^N \sum_{t=1}^Tv_{it}\alpha_i}{NT}=E(v_{it}\alpha_{it})=cov(v_{it},\alpha_i)+E(v_{it})E(\alpha_i)=0\\
+\\
+(2)&\because v_{it}=\varepsilon_{it}-\alpha_i\\
+&\therefore \varepsilon_{it}=v_{it}+\alpha_i\\
+&\text{根據information decomposition},v_{it}\perp\alpha_i\\
+&\therefore E(v_{it}\alpha_{it})=cov(v_{it},\alpha_i)+E(v_{it})E(\alpha_i)=0\\
+\\
+&\text{令}\sigma_\alpha^2=v(\alpha_i),\sigma^2_v=v(v_{it}),\sigma_{\alpha,v}=cov(\alpha_i,v_{it})\\
+(3)&\text{同上,information decomposition}\\
+&v(\varepsilon_{it})=v(v_{it}+\alpha_i)=v(v_{it})+v(\alpha_i)+2cov(v_{it}+\alpha_i)=\sigma^2_v+\sigma_\alpha^2\\
+&cov(\varepsilon_{it},\varepsilon_{is})=cov(v_{it}+\alpha_i,v_{is}+\alpha_i)\\
+&=cov(v_{it},v_{is})+cov(v_{it},\alpha_i)+cov(\alpha_i,v_{is})+v(\alpha_i)=\sigma^2_\alpha\\
+&其中cov(v_{it},\alpha_i)=cov(\alpha_i,v_{is})=0,\,\because v_{is}\perp\alpha_i\\
+&需假設cov(v_{it},v_{is})=0\\
+\\
+(4)&假設cov(\varepsilon_{is},\varepsilon_{js})=0,i\neq j\\
+\\
+(5)&令\varepsilon= \left[
+ \begin{matrix}
+   \varepsilon_1  \\
+   \varepsilon_2  \\
+       .       \\
+       .       \\
+       .       \\
+    \varepsilon_N
+  \end{matrix}
+  \right]
+其中\varepsilon_i= \left[
+\begin{matrix}
+\varepsilon_i1\\
+\varepsilon_i2\\
+.\\
+.\\
+.\\
+\varepsilon_iT
+\end{matrix}
+\right]\\\\
+
+&\Omega=E(\epsilon\epsilon^T)= \left[
+\begin{matrix}
+\epsilon_{i=1}\epsilon_{i=1} &\dots& &\dots& \epsilon_{i=1}\epsilon_{i=N}  \\
+\epsilon_{i=2}\epsilon_{i=1} &\epsilon_{i=2}\epsilon_{i=2} &\dots  &\dots &\vdots\\
+\vdots &\ddots  \\
+\vdots  &&\ddots   &&\vdots  \\
+\vdots   &&&\ddots    \\
+\epsilon_iT &\dots &\dots &\dots &\epsilon_{i=N}\epsilon_{i=N}
+\end{matrix}
+\right]=\left[
+\begin{matrix}
+\Omega_1 &\dots &\dots &\dots &0 \\
+&\Omega_2 \\
+&&\ddots\\
+&&&\ddots \\
+0&&&&\Omega_N
+\end{matrix}
+\right]\\
+\\
+&\text{,where}\,\Omega_1=\Omega_2=...=\Omega_N=\left[
+\begin{matrix}
+\sigma_v^2+\sigma_{\alpha}^2 &&&&\sigma_{\alpha}^2 \\
+&\sigma_v^2+\sigma_{\alpha}^2 \\
+&&&\ddots \\
+\sigma_{\alpha}^2 &&&&\sigma_v^2+\sigma_{\alpha}^2
+\end{matrix}
+\right]\\
+\\
+&\Omega_1=\epsilon_{i=1}\epsilon_{i=1}=\left[
+\begin{matrix}
+\epsilon_{i=1}\epsilon_{t=1} &&&&\epsilon_{11}\epsilon_{1T} \\
+\epsilon_{i=1}\epsilon_{t=2} &\epsilon_{12}^2 &&&\vdots \\
+&&&\ddots \\
+\epsilon_{1T}\epsilon_{11} &\dots &\dots &\dots &\epsilon_{iT}^2
+\end{matrix}
+\right]\\
+\\
+(6)&\varepsilon_{it}=v_{it}+\alpha_{i}\\
+&\text{fixed effect model 的殘差}v_{it}\\
+&\Omega=E(vv^T)=\left[
+\begin{matrix}
+v_{i=1}v_{i=1}&....&v_{i=1}v_{i=N}
+\\.&....&.
+\\.&....&.
+\\.&....&.
+\\v_{i=N}v_{i=1}&....&v_{i=N}v_{i=N}
+\end{matrix}\right]=\left[
+\begin{matrix}
+\Omega_{1}&0&...&0
+\\0&\Omega_{2}&...&0
+\\0&0&...&\Omega_{N}
+\end{matrix}\right]\\
+\\
+&\Omega_{i}=E(v_{i}v_{i})'=\left[
+\begin{matrix}
+v^2_{i1}&...&...&...&v_{i1}v_{iT}
+\\v_{i1}v_{i2}&v^2_{i2}&...&...&.
+\\.&...&...&...&.
+\\.&...&...&...&.
+\\v_{iT}v_{i1}&...&...&...&v^2_{iT}
+\end{matrix}\right]=
+\left[\begin{matrix}
+\sigma^2_v&...&0
+\\.&...&.
+\\0&...&\sigma^2_v
+\end{matrix}\right]\\
+&E(v_{i2}v_{i1})=cov(v_{i2}v_{i1})+E(v_{i2})E(v_{i1})=0沒有自我相關\\
+&E(v_{i1}v_{i1})=cov(v_{i1}v_{i1})+E(v_{i1})E(v_i1)=v(v_{1})=\sigma^2_v
+\end{align}
+
+
+
 ## 4 DiD
 考慮以下新聞：2015年8月北市3項老人福利政策施予對象以年滿65歲以上老人為主，只要持有敬老悠遊卡就可享有乘車優惠。
 
