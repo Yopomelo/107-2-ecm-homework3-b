@@ -102,15 +102,15 @@ $$
 (4)&假設cov(\varepsilon_{is},\varepsilon_{js})=0,i\neq j\\
 \\
 (5)&令\varepsilon= \left[
- \begin{matrix}
-   \varepsilon_1  \\
-   \varepsilon_2  \\
-       .       \\
-       .       \\
-       .       \\
-    \varepsilon_N
-  \end{matrix}
-  \right]
+\begin{matrix}
+\varepsilon_1\\
+\varepsilon_2\\
+.\\
+.\\
+.\\
+\varepsilon_N
+\end{matrix}
+\right]
 其中\varepsilon_i= \left[
 \begin{matrix}
 \varepsilon_i1\\
@@ -122,14 +122,14 @@ $$
 \end{matrix}
 \right]\\\\
 
-&\Omega=E(\epsilon\epsilon^T)= \left[
+&\Omega=E(\varepsilon\varepsilon^T)= \left[
 \begin{matrix}
-\epsilon_{i=1}\epsilon_{i=1} &\dots& &\dots& \epsilon_{i=1}\epsilon_{i=N}  \\
-\epsilon_{i=2}\epsilon_{i=1} &\epsilon_{i=2}\epsilon_{i=2} &\dots  &\dots &\vdots\\
+\varepsilon_{i=1}\varepsilon_{i=1} &\dots& &\dots& \varepsilon_{i=1}\varepsilon_{i=N}  \\
+\varepsilon_{i=2}\varepsilon_{i=1} &\varepsilon_{i=2}\varepsilon_{i=2} &\dots  &\dots &\vdots\\
 \vdots &\ddots  \\
 \vdots  &&\ddots   &&\vdots  \\
 \vdots   &&&\ddots    \\
-\epsilon_iT &\dots &\dots &\dots &\epsilon_{i=N}\epsilon_{i=N}
+\varepsilon_iT &\dots &\dots &\dots &\varepsilon_{i=N}\varepsilon_{i=N}
 \end{matrix}
 \right]=\left[
 \begin{matrix}
@@ -150,12 +150,12 @@ $$
 \end{matrix}
 \right]\\
 \\
-&\Omega_1=\epsilon_{i=1}\epsilon_{i=1}=\left[
+&\Omega_1=\varepsilon_{i=1}\varepsilon_{i=1}=\left[
 \begin{matrix}
-\epsilon_{i=1}\epsilon_{t=1} &&&&\epsilon_{11}\epsilon_{1T} \\
-\epsilon_{i=1}\epsilon_{t=2} &\epsilon_{12}^2 &&&\vdots \\
+\varepsilon_{i=1}\varepsilon_{t=1} &&&&\varepsilon_{11}\varepsilon_{1T} \\
+\varepsilon_{i=1}\varepsilon_{t=2} &\varepsilon_{12}^2 &&&\vdots \\
 &&&\ddots \\
-\epsilon_{1T}\epsilon_{11} &\dots &\dots &\dots &\epsilon_{iT}^2
+\varepsilon_{1T}\varepsilon_{11} &\dots &\dots &\dots &\varepsilon_{iT}^2
 \end{matrix}
 \right]\\
 \\
