@@ -1,6 +1,6 @@
 ---
 title: "HW3"
-author: "張鈞硯、吳宥履、賴彥融、王童緯、林奕翔"
+author: "林茂廷"
 date: "5/30/2019"
 output: html_document
 ---
